@@ -23,9 +23,37 @@ The training run produced a training/validation loss curve over 10 epochs. The l
 
 ![Training versus validation loss](assets/training_curves.png)
 
-The beam-search caption results are shown below. The selected images include the generated beam-search captions alongside human-reference captions.
+## Caption Examples
 
-![Beam-search captions compared with human references](assets/beam_search_captions.png)
+The following examples compare beam-search-generated captions with human-reference captions.
+
+### Example 1
+
+![Beam-search and human-reference captions for an apple and food dish](assets/caption_example_1.png)
+
+### Example 2
+
+![Beam-search and human-reference captions for a computer workstation](assets/caption_example_2.png)
+
+### Example 3
+
+![Beam-search and human-reference captions for horses in a field](assets/caption_example_3.png)
+
+### Example 4
+
+![Beam-search and human-reference captions for a kitchen](assets/caption_example_4.png)
+
+### Example 5
+
+![Beam-search and human-reference captions for people playing a video game](assets/caption_example_5.png)
+
+### Example 6
+
+![Beam-search and human-reference captions for a slice of cake](assets/caption_example_6.png)
+
+### Example 7
+
+![Beam-search and human-reference captions for surfers in the ocean](assets/caption_example_7.png)
 
 ## Dataset
 
@@ -63,7 +91,13 @@ The existing notebook requires access to `captions_train2014.json` at the Kaggle
 ```text
 MS-COCO-Image-Captioning/
 |-- assets/
-|   |-- beam_search_captions.png
+|   |-- caption_example_1.png
+|   |-- caption_example_2.png
+|   |-- caption_example_3.png
+|   |-- caption_example_4.png
+|   |-- caption_example_5.png
+|   |-- caption_example_6.png
+|   |-- caption_example_7.png
 |   `-- training_curves.png
 |-- file_RNN_CNN.ipynb
 |-- README.md
