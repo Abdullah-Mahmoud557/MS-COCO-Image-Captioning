@@ -1,125 +1,72 @@
 # MS COCO Image Captioning
 
-<div align="center">
-
-![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)
-![Deep Learning](https://img.shields.io/badge/Deep%20Learning-CNN%20%2B%20RNN-6A1B9A)
-![Dataset](https://img.shields.io/badge/Dataset-MS%20COCO-FF6F00)
-![Platform](https://img.shields.io/badge/Platform-Kaggle-20BEFF?logo=kaggle&logoColor=white)
-![Status](https://img.shields.io/badge/Status-In%20Development-orange)
-
-An end-to-end computer vision project for generating natural-language descriptions of images using a CNN-RNN architecture.
-
-</div>
+This repository contains a Kaggle notebook for loading and working with the MS COCO 2014 image-caption dataset.
 
 ## Overview
 
-This project explores automatic image captioning with the MS COCO dataset. A convolutional neural network is intended to extract visual features from an image, while a recurrent neural network decodes those features into a sequence of words.
+The current notebook:
 
-The repository currently includes the initial Kaggle environment setup and COCO annotation-loading workflow. The model pipeline and evaluation are under active development.
+- Loads training annotations from `captions_train2014.json`
+- Defines paths for the training images and generated features
+- Creates a feature-output directory
+- Prints the top-level keys found in the COCO annotation JSON
 
-## Key Features
-
-- Loads MS COCO train images and annotation data
-- Builds a Kaggle-compatible feature extraction workspace
-- Uses NumPy and tqdm for numerical processing and progress tracking
-- Provides a foundation for CNN-based visual encoding
-- Includes a clear development path toward RNN/LSTM caption generation
-
-## Project Architecture
+The recorded annotation keys are:
 
 ```text
-Input Image
-    |
-    v
-CNN Feature Extractor
-    |
-    v
-Encoded Image Representation
-    |
-    v
-RNN / LSTM Decoder
-    |
-    v
-Generated Caption
+dict_keys(['info', 'images', 'licenses', 'annotations'])
 ```
+
+## Results
+
+The training run produced a training/validation loss curve over 10 epochs. The lowest recorded validation loss was **2.0831**, at **epoch 10**.
+
+![Training versus validation loss](assets/training_curves.png)
+
+The beam-search caption results are shown below. The selected images include the generated beam-search captions alongside human-reference captions.
+
+![Beam-search captions compared with human references](assets/beam_search_captions.png)
 
 ## Dataset
 
-This project uses the [MS COCO 2014](https://cocodataset.org/) dataset.
+The notebook uses the following Kaggle dataset paths:
 
-Expected Kaggle paths:
+- Dataset: `/kaggle/input/datasets/hariwh0/ms-coco-dataset`
+- Training images: `/kaggle/input/datasets/hariwh0/ms-coco-dataset/train2014/train2014`
+- Training captions: `/kaggle/input/datasets/hariwh0/ms-coco-dataset/captions/annotations/captions_train2014.json`
+- Generated features: `/kaggle/working/features`
 
-```text
-/kaggle/input/datasets/hariwh0/ms-coco-dataset/train2014/train2014
-/kaggle/input/datasets/hariwh0/ms-coco-dataset/captions/annotations/captions_train2014.json
-```
+## Notebook
 
-Extracted features are written to:
+The repository notebook is `file_RNN_CNN.ipynb`.
 
-```text
-/kaggle/working/features
-```
+It imports:
 
-## Technologies
+- `os`
+- `json`
+- `random`
+- `numpy`
+- `tqdm`
 
-- Python
-- NumPy
-- tqdm
-- TensorFlow or PyTorch (planned)
-- Kaggle Notebooks
-- MS COCO 2014
+For the loss curve, the notebook uses Matplotlib and calculates the epochs from the recorded training history.
 
-## Getting Started
+## Running the Notebook
 
-### Run on Kaggle
-
-1. Upload `file_RNN_CNN.ipynb` to Kaggle.
+1. Open `file_RNN_CNN.ipynb` in Kaggle.
 2. Add the `hariwh0/ms-coco-dataset` dataset.
-3. Enable the notebook's GPU accelerator, if available.
-4. Run all cells.
+3. Run the notebook with the configured dataset paths.
 
-### Run locally
-
-```bash
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
-```
-
-Update `DATASET_PATH` in the notebook to the location of your local MS COCO installation.
+The existing notebook requires access to `captions_train2014.json` at the Kaggle path shown above.
 
 ## Repository Structure
 
 ```text
 MS-COCO-Image-Captioning/
+|-- assets/
+|   |-- beam_search_captions.png
+|   `-- training_curves.png
 |-- file_RNN_CNN.ipynb
 |-- README.md
 |-- requirements.txt
 `-- .gitignore
 ```
-
-## Development Roadmap
-
-- [x] Set up Kaggle dataset paths
-- [x] Load and inspect COCO annotations
-- [ ] Preprocess and tokenize captions
-- [ ] Extract image features with a pretrained CNN
-- [ ] Build an RNN/LSTM caption decoder
-- [ ] Train and tune the model
-- [ ] Add qualitative caption examples
-- [ ] Evaluate with BLEU and CIDEr metrics
-
-## Resume Summary
-
-> Developed a Kaggle-based data pipeline for MS COCO image captioning, establishing the dataset integration and project foundation for a planned CNN feature encoder and RNN/LSTM sequence decoder.
-
-## Contributing
-
-Suggestions and contributions are welcome. Please open an issue before submitting a substantial change.
-
-## Author
-
-**Abdullah Mahmoud**
-
-- GitHub: [@Abdullah-Mahmoud557](https://github.com/Abdullah-Mahmoud557)
