@@ -29,29 +29,25 @@ The following examples compare beam-search-generated captions with human-referen
 
 ### Example 1
 
-![Beam-search and human-reference captions for an apple and food dish](assets/caption_example_1.png)
+![Beam-search and human-reference captions for a computer workstation](assets/caption_example_2.png)
 
 ### Example 2
 
-![Beam-search and human-reference captions for a computer workstation](assets/caption_example_2.png)
+![Beam-search and human-reference captions for horses in a field](assets/caption_example_3.png)
 
 ### Example 3
 
-![Beam-search and human-reference captions for horses in a field](assets/caption_example_3.png)
+![Beam-search and human-reference captions for a kitchen](assets/caption_example_4.png)
 
 ### Example 4
 
-![Beam-search and human-reference captions for a kitchen](assets/caption_example_4.png)
+![Beam-search and human-reference captions for people playing a video game](assets/caption_example_5.png)
 
 ### Example 5
 
-![Beam-search and human-reference captions for people playing a video game](assets/caption_example_5.png)
-
-### Example 6
-
 ![Beam-search and human-reference captions for a slice of cake](assets/caption_example_6.png)
 
-### Example 7
+### Example 6
 
 ![Beam-search and human-reference captions for surfers in the ocean](assets/caption_example_7.png)
 
@@ -91,7 +87,6 @@ The existing notebook requires access to `captions_train2014.json` at the Kaggle
 ```text
 MS-COCO-Image-Captioning/
 |-- assets/
-|   |-- caption_example_1.png
 |   |-- caption_example_2.png
 |   |-- caption_example_3.png
 |   |-- caption_example_4.png
